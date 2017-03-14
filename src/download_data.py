@@ -2,7 +2,6 @@
 """
 Script for downloading data from RITA
 """
-from __future__ import print_function
 from urllib import urlretrieve
 import os
 
