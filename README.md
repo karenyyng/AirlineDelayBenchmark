@@ -11,6 +11,7 @@
 |
 |___config  : contains set up script for Intel Python 
 |___src     : contains python scripts for processing the data 
+		|____read_csv_and_print_stat.py runs within 2 mins
 |___results : benchmark results
 |___doc     : other documentation 
 |___data
