@@ -45,7 +45,7 @@ delay = pd.DataFrame(delay1)
 # delay2 = np.array(delay2)
 # delay = np.append(delay1, delay2)
 # delay = pd.DataFrame(delay)
-print 'total number of valid lines = {0}'.format(delay.dropna().shape[0])
+print ('total number of valid lines = {0}'.format(delay.dropna().shape[0]))
 
 # note that pandas ignores nans automatically while computing stats
 #print('mean = {0} \n'.format(delay[0].mean()) +
