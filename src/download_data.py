@@ -1,8 +1,8 @@
-#!/bin/env python
+#!/usr/bin/env python
 """
 Script for downloading data from RITA
 """
-from urllib import urlretrieve
+from urllib.request import urlretrieve
 import os
 
 
