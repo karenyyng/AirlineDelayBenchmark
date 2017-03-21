@@ -13,14 +13,11 @@ if [[  $HOSTNAME == "cori"* ]]; then
 elif [[ ! $(which conda) ]]; then
   [ -f Miniconda3-latest-Linux-x86_64.sh ] || curl -O https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
   echo "installing miniconda3 at $DIR"
-  bash ./Miniconda3-latest-Linux-x86_64.sh -b -p $DIR -f
+  bash ./Miniconda3-latest-Linux-x86_64.sh -b -p $DIR -f && \
   rm ./Miniconda3-latest-Linux-x86_64.sh
-  echo "adding $DIR/bin to $PATH in ~/.bashrc"
-  echo "export PATH=$DIR/bin:$PATH" >> ~/.bashrc
-  source ~/.bashrc
 fi
 
-conda config --add channels intel
+$HOME/miniconda3/bin/conda config --add channels intel
 echo 'finished adding Intel channel in conda'
 
 mkdir ~/py35_envs
@@ -31,10 +28,10 @@ echo 'creating directory py_35_envs at $HOME'
 # Python on Cori / Edison
 echo $'envs_dirs:\n  - ~/py35_envs' >> ${HOME}/.condarc
 echo 'appending envs_dirs to ~/.condarc at ~/py35_envs'
-conda create -y -c intel -n idp_35 intelpython3_full python=3
+$HOME/miniconda3/bin/conda create -y -c intel -n idp_35 intelpython3_full python=3
 
 echo 'installing additiona packages for functionality'
-pip install readline
-conda install -y keras 
-# source ./theano_config/set_theano_optimizations.sh
 source load_py35_env.sh
+pip install gnureadline
+$HOME/miniconda3/bin/conda install -y keras 
+# source ./theano_config/set_theano_optimizations.sh

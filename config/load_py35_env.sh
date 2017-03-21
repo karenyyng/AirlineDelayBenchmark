@@ -5,13 +5,15 @@
 # usage: 
 # source ./load_py35_env.sh
 # -------------
+DIR=$HOME/miniconda3
 if [[  $HOSTNAME == "cori"* ]]; then
   module load python/3.5-anaconda
   echo 'echo finish loading python/3.5-anaconda'
-  source activate $HOME/py35_envs/idp_35
-  echo 'activating conda environment at $HOME/py35_envs/idp_35'
+  source $DIR/bin/activate $HOME/py35_envs/idp_35
+  echo 'on Cori: activating conda environment at $HOME/py35_envs/idp_35'
 else
-  source activate idp_35
+  echo 'activating conda environment at $HOME/py35_envs/idp_35'
+  source $DIR/bin/activate idp_35
 fi
 
 echo "Using some recommended settings that may not be the best for your use case"
