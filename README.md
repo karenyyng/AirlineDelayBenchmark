@@ -8,10 +8,11 @@
 
 # Files 
 ```
+.
 |
 +---_config  : contains set up script for Intel Python 
 +---_src     : contains python scripts for processing the data 
-|		+---read_csv_and_print_stat.py runs within 2 mins
+|   +---read_csv_and_print_stat.py runs within 2 mins
 +---_results : benchmark results
 +---_doc     : other documentation 
 +---_data
