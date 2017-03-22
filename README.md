@@ -3,19 +3,18 @@
 [link](http://github.com/karenyyng/AirlineDelayBenchmark)
 
 # This is a non-trivial benchmark for a classification problem 
-[Data source for year between 1987-2003](http://stat-computing.org/dataexpo/2009/the-data.html) 
-[Metadata source](http://stat-computing.org/dataexpo/2009/supplemental-data.html)
+[Data source for year between 1987-2003](http://stat-computing.org/dataexpo/2009/the-data.html)    
+[Metadata source](http://stat-computing.org/dataexpo/2009/supplemental-data.html)   
 
 # Files 
 ```
 |
-|___config  : contains set up script for Intel Python 
-|___src     : contains python scripts for processing the data 
-		|____read_csv_and_print_stat.py runs within 2 mins
-|___results : benchmark results
-|___doc     : other documentation 
-|___data
-
++---_config  : contains set up script for Intel Python 
++---_src     : contains python scripts for processing the data 
+|		+---read_csv_and_print_stat.py runs within 2 mins
++---_results : benchmark results
++---_doc     : other documentation 
++---_data
 ```
 
 # One-time setup 
