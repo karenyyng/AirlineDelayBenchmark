@@ -72,7 +72,7 @@ And we will explore if we can find any natural clusters (subpopulation) that are
 # One-time software setup 
 Go to `config` and `source install_py35_env.sh` for installing Intel Python to your home directory.
 We plan to make the list of software that we use available as 
-- [ ] a Conda environment list  
+- [x] a Conda environment `yaml` list within `config`
 - [ ] possibly a Dockerfile / Docker image 
 
 

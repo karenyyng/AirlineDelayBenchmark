@@ -1,0 +1,175 @@
+name: idp_35
+channels:
+- intel
+- defaults
+dependencies:
+- intel::backports=1.0=py35_intel_6
+- intel::boost=1.61.0=py35_intel_3
+- intel::caffe=1.0.0=py35_intel_10
+- intel::cycler=0.10.0=py35_intel_5
+- intel::cython=0.24=py35_intel_16
+- intel::decorator=4.0.10=py35_intel_5
+- intel::distarray=0.6.0=py35_intel_4
+- intel::entrypoints=0.2.2=py35_intel_1
+- intel::freetype=2.5.5=intel_9
+- intel::get_terminal_size=1.0.0=py35_intel_5
+- intel::gflags=2.1.2=intel_3
+- intel::glog=0.3.4=intel_2
+- intel::h5py=2.6.0=np111py35_intel_1
+- intel::hdf5=1.8.17=intel_0
+- intel::icc_rt=16.0.3=intel_5
+- intel::icu=54.1=intel_2
+- intel::impi_rt=2017.0.1=intel_2
+- intel::intelpython=2017.0.2=1
+- intel::intelpython3_core=2017.0.2=0
+- intel::intelpython3_full=2017.0.2=0
+- intel::ipykernel=4.5.0=py35_intel_4
+- intel::ipyparallel=5.2.0=py35_intel_1
+- intel::ipython=4.2.0=py35_intel_8
+- intel::ipython_genutils=0.1.0=py35_intel_5
+- intel::ipywidgets=5.2.2=py35_intel_1
+- intel::jinja2=2.8=py35_intel_5
+- intel::jpeg=8d=intel_3
+- intel::jsonschema=2.5.1=py35_intel_5
+- intel::jupyter=1.0.0=py35_intel_5
+- intel::jupyter_client=4.4.0=py35_intel_2
+- intel::jupyter_console=5.0.0=py35_intel_5
+- intel::jupyter_core=4.2.0=py35_intel_5
+- intel::leveldb=1.18=intel_2
+- intel::libpng=1.6.28=intel_10
+- intel::libsodium=1.0.10=intel_6
+- intel::libtiff=4.0.7=intel_8
+- intel::llvmlite=0.15.0=py35_intel_0
+- intel::lmdb=0.9.18=intel_2
+- intel::markupsafe=0.23=py35_intel_6
+- intel::matplotlib=1.5.3=py35_intel_3
+- intel::mistune=0.7.3=py35_intel_1
+- intel::mkl=2017.0.2=intel_1
+- intel::mkl-dnn=0.3dev=intel_0
+- intel::mpi4py=2.0.0=py35_intel_9
+- intel::mpmath=0.19=py35_intel_5
+- intel::nbconvert=4.2.0=py35_intel_5
+- intel::nbformat=4.1.0=py35_intel_1
+- intel::networkx=1.11=py35_intel_0
+- intel::nose=1.3.7=py35_intel_12
+- intel::notebook=4.2.3=py35_intel_7
+- intel::numba=0.30.1=py35_intel_11
+- intel::numexpr=2.6.1=np111py35_intel_11
+- intel::numpy=1.11.2=py35_intel_51
+- intel::openssl=1.0.2k=intel_3
+- intel::pandas=0.19.2=py35_intel_1
+- intel::path.py=8.2.1=py35_intel_7
+- intel::pexpect=4.0.1=py35_intel_5
+- intel::pickleshare=0.7.4=py35_intel_1
+- intel::pillow=3.4.2=py35_intel_4
+- intel::pip=8.1.2=py35_intel_5
+- intel::prompt_toolkit=1.0.3=py35_intel_5
+- intel::protobuf=3.0.0=py35_intel_1
+- intel::ptyprocess=0.5.1=py35_intel_5
+- intel::pycosat=0.6.1=py35_intel_6
+- intel::pydaal=2017.0.2.20170126=py35_intel_0
+- intel::pygments=2.1.3=py35_intel_6
+- intel::pyparsing=2.1.4=py35_intel_5
+- intel::pytables=3.2.3.1=py35_intel_8
+- intel::python=3.5.2=intel_27
+- intel::python-dateutil=2.5.3=py35_intel_5
+- intel::python-gflags=3.1.0=py35_intel_1
+- intel::python-leveldb=0.193=py35_intel_0
+- intel::pytz=2016.6.1=py35_intel_5
+- intel::pyyaml=3.12=py35_intel_1
+- intel::pyzmq=15.4.0=py35_intel_3
+- intel::requests=2.11.1=py35_intel_1
+- intel::scikit-image=0.12.3=np111py35_intel_2
+- intel::scikit-learn=0.18.1=py35_intel_4
+- intel::scipy=0.18.1=np111py35_intel_10
+- intel::setuptools=23.0.0=py35_intel_4
+- intel::simplegeneric=0.8.1=py35_intel_5
+- intel::six=1.10.0=py35_intel_7
+- intel::snappy=1.1.3=intel_2
+- intel::sqlite=3.13.0=intel_13
+- intel::sympy=1.0=py35_intel_5
+- intel::tbb=2017.0.4=py35_intel_0
+- intel::tcl=8.6.4=intel_16
+- intel::terminado=0.6=py35_intel_6
+- intel::theano=1.0=py35_intel_0
+- intel::tk=8.6.4=intel_18
+- intel::tornado=4.4.1=py35_intel_3
+- intel::traitlets=4.2.2=py35_intel_3
+- intel::wcwidth=0.1.7=py35_intel_5
+- intel::wheel=0.29.0=py35_intel_5
+- intel::widgetsnbextension=1.2.6=py35_0
+- intel::xz=5.2.2=intel_15
+- intel::yaml=0.1.6=intel_10
+- intel::zeromq=4.1.4=intel_5
+- intel::zlib=1.2.11=intel_0
+- pip:
+  - backports.shutil-get-terminal-size==1.0.0
+  - cycler==0.10.0
+  - cython==0.24
+  - decorator==4.0.10
+  - distarray==0.6.0
+  - gnureadline==6.3.3
+  - h5py==2.6.0
+  - ipykernel==4.5.0
+  - ipyparallel==5.2.0
+  - ipython==4.2.0
+  - ipython-genutils==0.1.0
+  - ipywidgets==5.2.2
+  - jinja2==2.8
+  - jsonschema==2.5.1
+  - jupyter==1.0.0
+  - jupyter-client==4.4.0
+  - jupyter-console==5.0.0
+  - jupyter-core==4.2.0
+  - keras==2.0.2
+  - leveldb==0.193
+  - llvmlite==0.15.0+0.g99e5ce9.dirty
+  - markupsafe==0.23
+  - matplotlib==1.5.3
+  - mistune==0.7.3
+  - mpi4py==2.0.0
+  - mpmath==0.19
+  - nbconvert==4.2.0
+  - nbformat==4.1.0
+  - networkx==1.11
+  - nose==1.3.7
+  - notebook==4.2.3
+  - numba==0.30.1+0.g8c1033f.dirty
+  - numexpr==2.6.1
+  - numpy==1.11.2
+  - pandas==0.19.2
+  - path.py==0.0.0
+  - pexpect==4.0.1
+  - pickleshare==0.7.4
+  - pillow==3.4.2
+  - pip==8.1.2
+  - prompt-toolkit==1.0.3
+  - protobuf==3.0.0
+  - ptyprocess==0.5.1
+  - pycosat==0.6.1
+  - pydaal==2017.0.2.20170126
+  - pygments==2.1.3
+  - pyparsing==2.1.4
+  - python-dateutil==2.5.3
+  - python-gflags==3.1.0
+  - pytz==2016.6.1
+  - pyyaml==3.12
+  - pyzmq==15.4.0
+  - requests==2.11.1
+  - scikit-image==0.12.3
+  - scikit-learn==0.18.1
+  - scipy==0.18.1
+  - setuptools==23.0.0
+  - simplegeneric==0.8.1
+  - six==1.10.0
+  - sympy==1.0
+  - tables==3.2.3.1
+  - tbb==0.1
+  - terminado==0.6
+  - theano==0.9.0.dev2
+  - tornado==4.4.1
+  - traitlets==4.2.2
+  - wcwidth==0.1.7
+  - wheel==0.29.0
+  - widgetsnbextension==1.2.6
+prefix: /global/homes/k/karenyng/py35_envs/idp_35
