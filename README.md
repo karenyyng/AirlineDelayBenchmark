@@ -7,26 +7,48 @@
 [Metadata source](http://stat-computing.org/dataexpo/2009/supplemental-data.html)   
 
 # Goals
-This is a non-trivial benchmark to compare 
+This is a non-trivial benchmark with (> 12 GB of data) to compare 
 the predictive performance, timing and memory usage 
 
 * between various machine learning & deep learning algorithms 
 * between the same algorithm implemented in different frameworks and languages
 
-The benchmark is not meant to be completely comprehensive due to the large possible configuration space . 
+The benchmark is not meant to be completely comprehensive due to the large possible configuration space. 
+We pick a few algorithms that are popular and the author is familiar with.
 We encourage others to contribute their own implementations.
 
-We hope to illustrate 
-1. a few best practises for unit testing machine learning code.  
-2. how to setup Intel optimized libraries for the best performances or help push for more performance
+We hope to illustrate:
+
+1. realistic data processing steps
+2. a few best practises for unit testing and benchmarking machine learning code in Python 
+3. best practises to allow a reproducible ML software stack to be setup on different machines 
+4. how to setup Intel optimized ML libraries for the best performances or help push for more performance
 
 To achieve those goals, We perform the following tasks:
 
 1. classification of whether a flight is delayed or not 
-	* Boosting from `XGBoost`
-	* Random Forest form `Scikit-Learn`
-	* Logistic regression from `Scikit-learn` from baseline
-2. regression of how long a flight is delayed for 
+	* - [ ] Boosting from 
+		- [ ] `XGBoost`
+		- [ ] `PyDAAL`
+	* - [ ] Random Forest from 
+		- [ ] `Scikit-Learn`
+		- [ ] `Spark ML` 
+	* - [ ] SVM with non-linear kernel from (linear kernel is almost the same as Logistic regression)
+		- [ ] `Scikit-Learn`
+		- [ ] `Spark ML` 
+	* - [ ] Logistic regression from `Scikit-learn` for baseline comparison
+		- [ ] `Scikit-Learn`
+		- [ ] `Spark ML` 
+	* - [ ] an appropriate neural network topology, possibly a deep feed forward network 
+
+2. regression of how long a flight is delayed for (within the delayed population) 
+	* - [ ] Boosting from `XGBoost` 
+	* - [ ] Random Forest 
+		- [ ] `Scikit-Learn`
+		- [ ] `Spark ML` 
+	* - [ ] Linear regression from `Scikit-learn` for baseline comparison
+	* - [ ] an appropriate neural network topology, possibly a deep feed forward network 
+
 
 And we will explore if we can find any natural clusters (subpopulation) that are present in the dataset.
 
