@@ -2,7 +2,7 @@
 
 [link](http://github.intel.com/karenyin/AirlineDelayBenchmark)
 
-# Data source of the Airline delay data
+# Data source of the airline delay data
 [Data source for year between 1987-2003](http://stat-computing.org/dataexpo/2009/the-data.html)    
 [Metadata source](http://stat-computing.org/dataexpo/2009/supplemental-data.html)   
 
@@ -19,7 +19,7 @@ We encourage others to contribute their own implementations.
 
 We hope to illustrate:
 
-1. realistic data processing steps
+1. realistic data preprocessing steps
 2. a few best practises for unit testing and benchmarking machine learning code in Python 
 3. best practises to allow a reproducible ML software stack to be setup on different machines 
 4. how to setup Intel optimized ML libraries for the best performances or help push for more performance
