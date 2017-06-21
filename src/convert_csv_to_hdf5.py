@@ -12,8 +12,8 @@ compression = 'gzip'
 
 for year in range(*year_range):
     filename = data_path + "/" + str(year) + '_' + compression + '.h5'
-    print("converting the file {0}/{1}.csv to {2}".format(
+    print("converting the file {0}/{1}.csv.bz2 to {2}".format(
         data_path, year, filename))
-    df = pd.read_csv(data_path + "/" + str(year) + ".csv",
+    df = pd.read_csv(data_path + "/" + str(year) + ".csv.bz2",
                      encoding="ISO-8859-1")
     df.to_hdf(filename, key="csv")
