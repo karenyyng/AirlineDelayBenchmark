@@ -8,14 +8,23 @@
 
 # Goals
 This is a non-trivial benchmark with (> 12 GB of data) to compare 
-the predictive performance, timing and memory usage 
+the predictive performance, timing, memory usage and __scalability__
 
 * between various machine learning & deep learning algorithms 
 * between the same algorithm implemented in different frameworks and languages
 
-The benchmark is not meant to be completely comprehensive due to the large possible configuration space. 
+We understand similar examples have been performed before, such as
+[1](https://github.com/szilard/benchm-ml),
+[2](http://www.springer.com/us/book/9781461478997) and 
+[3](https://jcrist.github.io/dask-sklearn-part-3.html)
+We do not claim to have the original idea but wish to provide a completely
+reproducible, realistic example to showcase the best practises for benchmarking ML code.
+The main goal is provide an assessment of the amount of compute resources
+needed to process a certain amount of data.
+The benchmark is also not meant to be completely comprehensive due to the large possible configuration space. 
 We pick a few algorithms that are popular and the author is familiar with.
-We encourage others to contribute their own implementations.
+We encourage others to contribute their own implementations in a
+__reproducible__ way for comparisons.
 
 We hope to illustrate:
 
@@ -71,15 +80,25 @@ And we will explore if we can find any natural clusters (subpopulation) that are
 
 # One-time software setup 
 Go to `config` and `source install_py35_env.sh` for installing Intel Python to your home directory.
+Other possible dependencies 
+
 We plan to make the list of software that we use available as 
 - [x] a Conda environment `yaml` list within `config`
-- [ ] possibly a Dockerfile / Docker image 
-
+- [ ] a Dockerfile / Docker image for the best setup instructions 
 
 # Subsequent use of code after the one-time software setup
-`$ source ./config/load_py35_env.sh`
 Email [Karen](mailto:karen.y.ng@intel.com) for suggestions for improving the setups. Thanks. 
 
+# notes about data 
+Processing `2003.csv.bz2` gives a warning message during ETL.
+```
+sys:1: DtypeWarning: Columns (22) have mixed types. Specify dtype option on
+import or set low_memory=False.
+```
+
+# Restoring the original environment
+`$ source ./config/unload_ipy35_env.sh`
+This restores the PATH variable to the original state.
 
 # Credits
 Thanks to Duncan Temple Lang who first showed me the dataset.
