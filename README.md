@@ -16,7 +16,10 @@ the predictive performance, timing, memory usage and __scalability__
 We understand similar examples have been performed before, such as
 [1](https://github.com/szilard/benchm-ml),
 [2](http://www.springer.com/us/book/9781461478997) and 
-[3](https://jcrist.github.io/dask-sklearn-part-3.html)
+
+and [3](https://jcrist.github.io/dask-sklearn-part-3.html) those library developments for dask-learn
+are now deprecated and replaced by [4](http://jcrist.github.io/introducing-dask-searchcv.html).
+
 We do not claim to have the original idea but wish to provide a completely
 reproducible, realistic example to showcase the best practises for benchmarking ML code.
 The main goal is provide an assessment of the amount of compute resources
@@ -30,7 +33,7 @@ We hope to illustrate:
 
 1. realistic data preprocessing steps
 2. a few best practises for unit testing and benchmarking machine learning code in Python 
-3. best practises to allow a reproducible ML software stack to be setup on different machines 
+3. best practises to deploy a reproducible ML software stack on different machines 
 4. how to setup Intel optimized ML libraries for the best performances or help push for more performance
 
 To achieve those goals, We perform the following tasks:
@@ -79,7 +82,7 @@ And we will explore if we can find any natural clusters (subpopulation) that are
 ```
 
 # One-time software setup 
-Go to `config` and `source install_py35_env.sh` for installing Intel Python to your home directory.
+Go to [`config`](https://github.intel.com/karenyin/intel_pydata_benchmark/tree/master/config) and `source install_py35_env.sh` for installing Intel Python to your home directory.
 Other possible dependencies 
 
 We plan to make the list of software that we use available as 
