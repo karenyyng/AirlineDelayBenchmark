@@ -30,7 +30,7 @@ def run():
             'TaxiIn',
             'DayOfWeek'
             ]
-    df = readFiles(data_dir, fileExt="h5", noOfFiles=11, cols=cols)
+    df = readFiles(data_dir, fileExt="h5", noOfFiles=None, cols=cols)
     df = removeNaNs(df)
     print("\n\nmean of ArrDelay is {}\n\n".format(dask.compute(df.ArrDelay.mean())))
 
