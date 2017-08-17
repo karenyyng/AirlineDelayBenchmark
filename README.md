@@ -3,11 +3,16 @@
 [link](http://github.intel.com/karenyin/AirlineDelayBenchmark)
 
 # Data source of the airline delay data
+
+This is a very popular dataset that has been in numerous ML examples.  
+[Location for download](See
+https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
+for available fields)
 [Data source for year between 1987-2003](http://stat-computing.org/dataexpo/2009/the-data.html)    
 [Metadata source](http://stat-computing.org/dataexpo/2009/supplemental-data.html)   
 
 # Goals
-This is a non-trivial benchmark with (> 12 GB of data) to compare 
+This is a non-trivial benchmark with (72 GB of data in CSV format) to compare 
 the predictive performance, timing, memory usage and __scalability__
 
 * between various machine learning & deep learning algorithms 
@@ -19,9 +24,13 @@ We understand similar examples have been performed before, such as
 
 and [3](https://jcrist.github.io/dask-sklearn-part-3.html) those library developments for dask-learn
 are now deprecated and replaced by [4](http://jcrist.github.io/introducing-dask-searchcv.html).
+Another related Dask example is
+[5](https://gist.github.com/mrocklin/19c89d78e34437e061876a9872f4d2df) .
+Other examples using different Hadoop-related software stacks can be found at [6](https://hortonworks.com/blog/data-science-apacheh-hadoop-predicting-airline-delays/), [7] and [8](https://hortonworks.com/blog/data-science-hadoop-spark-scala-part-2/)
 
 We do not claim to have the original idea but wish to provide a completely
-reproducible, realistic example to showcase the best practises for benchmarking ML code.
+reproducible, realistic example to showcase the best practises for benchmarking ML code and
+compare various parallelism approaches.
 The main goal is provide an assessment of the amount of compute resources
 needed to process a certain amount of data.
 The benchmark is also not meant to be completely comprehensive due to the large possible configuration space. 
@@ -81,6 +90,9 @@ And we will explore if we can find any natural clusters (subpopulation) that are
 +---_benchmark : code for benchmarking
 ```
 
+# IO references 
+* [performance comparison between (multithreaded) Parquet and HDF5](https://tech.blue-yonder.com/efficient-dataframe-storage-with-apache-parquet/)
+
 # One-time software setup 
 Go to [`config`](https://github.intel.com/karenyin/intel_pydata_benchmark/tree/master/config) and `source install_py35_env.sh` for installing Intel Python to your home directory.
 Other possible dependencies 
@@ -107,3 +119,5 @@ This restores the PATH variable to the original state.
 Thanks to Duncan Temple Lang who first showed me the dataset.
 Please also see his book `XML and Web Technologes for Data Science with R`.
 for another use of a dataset from the same source.
+
+
