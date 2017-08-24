@@ -63,7 +63,8 @@ $CONDA install -y pysocks=1.6.6 \
   graphviz=2.38.0 \
   python-graphviz=0.5.2=py35_0 \
   memory_profiler=0.43=py35_0 \ 
-  paramiko=2.1.2=py35_0
+  paramiko=2.1.2=py35_0 \
+  line_profiler
 $CONDA install -c conda-forge category_encoders 
 
 pip install --no-deps py==1.4.33 \
