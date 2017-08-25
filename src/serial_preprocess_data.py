@@ -53,11 +53,10 @@ def clean_data_minimally(df, verbose=True,
     if verbose:
         print("Removed {0:.2f}% of records with NaN in target variable.".format(
             nan_numbers / df.shape[0] * 100))
-        print("Removed {0} of additional invalid records which is " +
-              "{1:.2f}% of total records".format(
-                  original_df_size - df.iloc[ix].shape[0],
-                  (original_df_size - df.iloc[ix].shape[0]
-                   ) / original_df_size * 100)
+        print("Removed {0} of additional invalid records which is ".format(
+                  original_df_size - df.iloc[ix].shape[0]) +
+              "{0:.2f}% of total records".format(
+                  (original_df_size - df.iloc[ix].shape[0]) / original_df_size * 100)
               )
     return ix
 
