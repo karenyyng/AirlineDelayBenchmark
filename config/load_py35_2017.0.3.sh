@@ -63,8 +63,8 @@ echo "Setting MKL_DYNAMIC = $MKL_DYNAMIC"
 echo "Setting HPL_LARGEPAGE= $HPL_LARGEPAGE"
 # 
 export NUM_OF_THREADS=$(grep 'model name' /proc/cpuinfo | wc -l)  
-export OMP_NUM_THREADS=$(( $NUM_OF_THREADS / 4 ))
-export MKL_NUM_THREADS=$(( $NUM_OF_THREADS / 4 ))
+export OMP_NUM_THREADS=$(( $NUM_OF_THREADS / 2 ))
+export MKL_NUM_THREADS=$(( $NUM_OF_THREADS / 2 ))
 # export KMP_HW_SUBSET=${OMP_NUM_THREADS}c,1t  # or use 64c,2t 
 echo "$NUM_OF_THREADS threads possible"
 echo "Setting OMP_NUM_THREADS=$OMP_NUM_THREADS"
