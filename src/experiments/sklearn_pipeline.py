@@ -15,6 +15,7 @@ from sklearn.preprocessing import Imputer
 from sklearn.externals import joblib
 from sklearn import metrics
 from category_encoders import BinaryEncoder
+from datetime import datetime
 
 
 from sklearn.model_selection import TimeSeriesSplit
@@ -28,8 +29,8 @@ sys.path.append("../")
 import serial_preprocess_data as preprocess
 import utils
 
-# cpu_count = int(psutil.cpu_count() / 6)
-cpu_count = 8
+cpu_count = int(psutil.cpu_count() / 4) - 2
+print("Trying to use {} number of cpu".format(cpu_count))
 data_dir = "../../data/"
 hdf_files = sorted([data_dir + file for file in os.listdir(data_dir)
                     if '.h5' in file])
@@ -42,7 +43,7 @@ columns = ['Year',
            'ArrTime',
            'Dest',
            'FlightNum',
-           'DepDelay',
+           # 'DepDelay',  ## not using DepDelay
            'ActualElapsedTime',
            'ArrDelay',
            'DayofMonth',
@@ -52,13 +53,18 @@ columns = ['Year',
            'Origin',
            'DayOfWeek'
            ]
-
+scoring = 'roc_auc'
 no_of_files = 12
 
 df = preprocess.readFilesToDf("h5", file_list=hdf_files[:no_of_files],
                               cols=columns)
 
-utils.getFileSizeInGB(hdf_files[:no_of_files])
+print("Size of file read in is {0:.2f} GB".format(
+      utils.getFileSizeInGB(hdf_files[:no_of_files])))
+print("Reading in {0} selected columns only".format(len(columns)))
+print("Columns are:", columns)
+print("Memory usage of the data frame is {0:.2f} GB".format(
+      np.sum(df.memory_usage()) / 1e9))
 
 # preprocess data check the percentage of nans
 cat_variables = preprocess.find_cardinality_of_categorical_variables(df)
@@ -107,25 +113,30 @@ cv_ixes = [(train_ix, test_ix)
 rf_pipeline_steps = [
     # impute missing feature values with median values
     ("imputer", Imputer(strategy="median")),
-    ('rf', RandomForestClassifier()),
+    ('rf', RandomForestClassifier(n_jobs=cpu_count, oob_score=True)),
 ]
 
 gridsearch_parameters = dict([
-    ("rf__n_estimators", [500, 1000]),
-    ("rf__max_features", [None, 'auto']),  # not many featuers to subset from
+    ("rf__n_estimators", [400, 800]),
+    ("rf__max_features", [None]),  # not many featuers to subset from
 ])
 
 rf_pipeline = Pipeline(rf_pipeline_steps)
 
 est = GridSearchCV(rf_pipeline,
                    param_grid=gridsearch_parameters,
-                   n_jobs=cpu_count,
+                   n_jobs=1,
                    # use accuracy for scoring for comparing to another benchmark
-                   scoring=None,
+                   scoring=scoring,
                    cv=tscv.split(X),
                    )
-
+print("Fitting the values")
+print("Columns in the training data are ", X.columns)
 est.fit(transformed_X.values, y.values)
-joblib.dump(est, "./RF_CV_pipeline.pkl")
-print("Best score (accuracy) is", est.best_score_)
+print("Saving the model")
+print("Best score" + scoring + "is", est.best_score_)
 print("Best parameters are ", est.best_params_)
+
+datetime_stamp = datetime.now().strftime("%D_%X"
+                                         ).replace("/", "_").replace(":", "_")
+joblib.dump(est.best_estimator_, "./RF_CV_pipeline" + datetime_stamp + ".pkl")
