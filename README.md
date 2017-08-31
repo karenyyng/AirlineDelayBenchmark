@@ -26,7 +26,7 @@ and [3](https://jcrist.github.io/dask-sklearn-part-3.html) those library develop
 are now deprecated and replaced by [4](http://jcrist.github.io/introducing-dask-searchcv.html).
 Another related Dask example is
 [5](https://gist.github.com/mrocklin/19c89d78e34437e061876a9872f4d2df) .
-Other examples using different Hadoop-related software stacks can be found at [6](https://hortonworks.com/blog/data-science-apacheh-hadoop-predicting-airline-delays/), [7] and [8](https://hortonworks.com/blog/data-science-hadoop-spark-scala-part-2/)
+Other examples using different Hadoop-related software stacks can be found at [6](https://hortonworks.com/blog/data-science-apacheh-hadoop-predicting-airline-delays/), [7] and [8](https://hortonworks.com/blog/data-science-hadoop-spark-scala-part-2/) and [9](http://www.bigsynapse.com/spark-input-output)
 
 We do not claim to have the original idea but wish to provide a completely
 reproducible, realistic example to showcase the best practises for benchmarking ML code and
