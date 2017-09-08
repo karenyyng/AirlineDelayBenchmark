@@ -21,7 +21,7 @@ fi
 echo 'accepting INTEL PYTHON EULA'
 if [[  $NERSC_HOST == "cori" ]]; then
   DIR=/global/common/cori/software/python/3.5-anaconda
-  ENV_DIR=$SCRATCH
+  ENV_DIR=/global/common/software/bdc
   module load python/3.5-anaconda  
   echo 'echo finish loading python/3.5-anaconda'
 elif [[ ! $(which conda) ]]; then
