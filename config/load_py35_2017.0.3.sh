@@ -15,7 +15,7 @@ fi
 
 if [[  $NERSC_HOST == "cori"* ]]; then
   DIR=/global/common/cori/software/python/3.5-anaconda
-  ENV_DIR=$SCRATCH/py35_envs
+  ENV_DIR=/global/common/software/bdc/py35_envs
   module load python/3.5-anaconda
   echo 'On Cori: echo finish loading python/3.5-anaconda'
 else
