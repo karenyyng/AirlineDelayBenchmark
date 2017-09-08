@@ -5,7 +5,7 @@
 # usage: 
 # source ./load_py35_VERSION.sh
 # -------------
-CONDA_ENV=idp35_201703
+CONDA_ENV=airlinedelay
 
 BASH_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 if [[ ! $(grep 'PATH' $BASH_DIR/unload_py35_env.sh) ]]; then 
@@ -21,8 +21,7 @@ if [[  $NERSC_HOST == "cori"* ]]; then
 else
   DIR=$HOME/miniconda3
   ENV_DIR=$HOME/miniconda3/py35_envs
-  PATH=$PATH:/opt/intel/vtune_amplifier_xe_2017/bin64/
-
+  # PATH=$PATH:/opt/intel/vtune_amplifier_xe_2017/bin64/
 fi
 
 if [[ -f $HOME/.condarc ]]; then

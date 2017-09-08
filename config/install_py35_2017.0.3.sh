@@ -4,7 +4,7 @@
 # usage:
 # source install_py35_env.sh
 # -------------
-CONDA_ENV=daal4py
+CONDA_ENV=airlinedelay
 if echo "$(uname -a)" | grep Linux ; then
   OS=Linux
 else
