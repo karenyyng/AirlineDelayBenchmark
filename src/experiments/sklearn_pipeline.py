@@ -1,28 +1,26 @@
 """
 A pipeline for analyzing airline delays data
 """
-
-
 import psutil
 
 # import matplotlib.pyplot as plt
 from sklearn.pipeline import Pipeline
 from sklearn.model_selection import GridSearchCV
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.preprocessing import StandardScaler, LabelEncoder, LabelBinarizer
+from sklearn.preprocessing import StandardScaler, LabelEncoder  # , LabelBinarizer
 # from sklearn.naive_bayes import GaussianNB
 from sklearn.preprocessing import Imputer
 from sklearn.externals import joblib
-from sklearn import metrics
+# from sklearn import metrics
 from category_encoders import BinaryEncoder
 from datetime import datetime
 
 
 from sklearn.model_selection import TimeSeriesSplit
 import os
-import pandas as pd
+# import pandas as pd
 import numpy as np
-import h5py
+# import h5py
 
 import sys
 sys.path.append("../")
@@ -117,7 +115,7 @@ rf_pipeline_steps = [
 ]
 
 gridsearch_parameters = dict([
-    ("rf__n_estimators", [400, 800]),
+    ("rf__n_estimators", [800]),
     ("rf__max_features", [None]),  # not many featuers to subset from
 ])
 
