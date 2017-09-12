@@ -7,7 +7,7 @@ from mpi4py import MPI
 import pandas as pd
 import numpy as np
 import time
-import datetime
+from collections import OrderedDict
 
 # import scripts that Karen wrote
 # import serial_preprocess_data as preprocess
@@ -57,7 +57,15 @@ if rank == 0:
     verbose = True
     save_json = True
 
-    timing_info = {}
+    timing_info = OrderedDict({})
+    timing_info['git_commit'] = utils.capture_multiline_output(
+        'git show | head -1')[0]
+    timing_info['git_repo'] = utils.capture_multiline_output(
+        'git remote -v ')[0]
+    timing_info['conda_env'] = utils.capture_multiline_output(
+        'conda list')
+    timing_info['conda_env'] = utils.capture_multiline_output(
+        'lscpu')[0]
     timing_info['read_hdf_seconds'] = \
         np.array([round(read_time, 2) for read_time in read_df_time])
     timing_info['gather_hdf_seconds'] = \
@@ -85,16 +93,11 @@ if rank == 0:
     # timing_info['IO_GB_per_second'] =
     timing_info['df_shape'] = df.shape
     timing_info['date'] = time.strftime('%Y-%m-%d-%H-%M-%S')
-    timing_info['git_commit'] = utils.capture_multiline_output(
-        'git show | head -1')
-    timing_info['git_repo'] = utils.capture_multiline_output(
-        'git remote -v ')
-    timing_info['conda_env'] = utils.capture_multiline_output(
-        'conda list')
     timing_info['read_hdf_seconds'] = \
         list(timing_info['read_hdf_seconds'])
     timing_info['gather_hdf_seconds'] = \
         list(timing_info['gather_hdf_seconds'])
+    timing_info['no_of_workers'] = workers
 
     if verbose:
         for k in timing_info:
