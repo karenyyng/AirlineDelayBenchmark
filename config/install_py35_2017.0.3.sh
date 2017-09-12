@@ -65,7 +65,7 @@ $CONDA install -y pysocks=1.6.6 \
   memory_profiler=0.43=py35_0 \ 
   paramiko=2.1.2=py35_0 \
   line_profiler
-$CONDA install -c conda-forge category_encoders 
+$CONDA install -y -c conda-forge category_encoders 
 
 pip install --no-deps py==1.4.33 \
   gnureadline==6.3.3 \
