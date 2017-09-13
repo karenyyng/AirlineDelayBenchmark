@@ -37,7 +37,7 @@ columns = ['Year',
            ]
 
 # divide up the workload
-subset = 10
+subset = 320
 files_per_worker = int(len(h5list[:subset]) / workers)
 chunk_to_read = 0
 if rank == workers - 1:
