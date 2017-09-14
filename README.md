@@ -11,11 +11,10 @@
 # Data source of the airline delay data
 
 This is a very popular dataset that has been in numerous ML examples.  
-[Location for download](See
-https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
+* [Location for download](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
 for available fields)
-[Data source for year between 1987-2003](http://stat-computing.org/dataexpo/2009/the-data.html)    
-[Metadata source](http://stat-computing.org/dataexpo/2009/supplemental-data.html)   
+* [Data source for year between 1987-2003](http://stat-computing.org/dataexpo/2009/the-data.html)    
+* [Metadata source](http://stat-computing.org/dataexpo/2009/supplemental-data.html)   
 
 # Goals
 This is a non-trivial benchmark with (72 GB of data in CSV format) to compare 
