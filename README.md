@@ -6,7 +6,7 @@
 * hard disk needs to have more than 300 GB of free space 
 	* the raw CSV files take up 72 GB 
 	* the converted HDF5 files take up 210 GB (because NaNs are stored as 64 bit
-	  floats, and other metadata)
+	  floats, and other metadata for the column variable types)
 
 # Data source of the airline delay data
 
