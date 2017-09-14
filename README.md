@@ -2,6 +2,12 @@
 
 [link](http://github.intel.com/karenyin/AirlineDelayBenchmark)
 
+# System requirement
+* hard disk needs to have more than 300 GB of free space 
+	* the raw CSV files take up 72 GB 
+	* the converted HDF5 files take up 210 GB (because NaNs are stored as 64 bit
+	  floats, and other metadata)
+
 # Data source of the airline delay data
 
 This is a very popular dataset that has been in numerous ML examples.  
