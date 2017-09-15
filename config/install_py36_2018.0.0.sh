@@ -11,6 +11,9 @@ export PY_VERSION=36
 export PY_DOT_VERSION=3.6
 export PY_MAJOR_VERSION=3
 export EDITION=core
+if [[  $NERSC_HOST == "cori"  ]]; then
+  ENV_DIR=/global/common/software/bdc
+fi
 
 BASH_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}"  )" && pwd  )"
 if [[ ! -f ${BASH_DIR}/setup_conda.sh ]]; then
