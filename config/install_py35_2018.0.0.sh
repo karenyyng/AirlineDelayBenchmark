@@ -14,8 +14,7 @@ export EDITION=core
 
 BASH_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}"  )" && pwd  )"
 if [[ ! -f ${BASH_DIR}/setup_conda.sh ]]; then
-  wget -O ${BASH_DIR}/setup_conda.sh
-  https://gist.githubusercontent.com/karenyyng/d854662dadd2f1fa027bc87abf0a045c/raw/6da28836adce9b4d5c751599299ed5227504455a/setup_conda.sh 
+  wget -O ${BASH_DIR}/setup_conda.sh https://gist.githubusercontent.com/karenyyng/d854662dadd2f1fa027bc87abf0a045c/raw/6da28836adce9b4d5c751599299ed5227504455a/setup_conda.sh 
 fi
 if [[ ! -f ${BASH_DIR}/load_conda.sh ]]; then
   wget -O ${BASH_DIR}/load_conda.sh https://gist.githubusercontent.com/karenyyng/692025f1cc8ec753cd44a6cc9f78db6a/raw/c9df0d8c348632748b2af96d4c55d1ab14cc0927/load_conda.sh 
