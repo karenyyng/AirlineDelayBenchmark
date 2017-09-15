@@ -16,7 +16,7 @@ def getFileSizeInGB(file_list):
 
 
 def getFileList(data_dir, file_format):
-    return [data_file for data_file in os.listdir(data_dir)
+    return [data_dir + "/" + data_file for data_file in os.listdir(data_dir)
             if data_file.endswith(file_format)]
 
 

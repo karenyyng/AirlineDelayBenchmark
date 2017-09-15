@@ -47,7 +47,9 @@ psutil=5.2.2
 graphviz=2.38.0 \
 # python-graphviz=0.5.2=py35_0 \
 paramiko=2.1.2=py35_0 \
-distributed=1.18.1
+distributed=1.18.1 \
+pytables=3.3.0 \
+numba
 $CONDA install -y memory_profiler line_profiler
 # $CONDA install -y -c conda-forge category_encoders 
 

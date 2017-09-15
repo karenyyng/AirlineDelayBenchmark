@@ -58,7 +58,7 @@ echo 'installing additiona packages for functionality'
 BASH_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $BASH_DIR/load_py35_2017.0.3.sh
 $CONDA install -y pysocks=1.6.6 \
-  # dask=0.15.0=py35_0 \
+  dask=0.15.2=py35_0 \
   psutil=5.2.2=py35_0 \
   graphviz=2.38.0 \
   python-graphviz=0.5.2=py35_0 \
@@ -72,9 +72,8 @@ pip install --no-deps py==1.4.33 \
   gnureadline==6.3.3 \
   # keras==2.0.2 \
   pygal==2.0.13 \
-  pygaljs==1.0.1 \
+  pygaljs==1.0.1 
   # xgboost==0.6a2 \
-  dask-searchcv==0.0.2 
 pip install pytest==3.0.7 git+ssh://git@github.com/karenyyng/pytest-benchmark.git
 # pip install dask-xgboost==0.1.3 
 # source ./theano_config/set_theano_optimizations.sh
