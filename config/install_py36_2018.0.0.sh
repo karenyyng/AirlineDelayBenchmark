@@ -24,11 +24,11 @@ source ${BASH_DIR}/load_conda.sh
 
 if [[ ! -f ${BASH_DIR}/load_py${PY_VERSION}_${INTEL_PYTHON_VERSION}.sh ]]; then
   echo 'Creating file for reloading the environment'
-  echo 'export CONDA_ENV=airline' > ${BASH_DIR}/load_py${PY_VERSION}_${INTEL_PYTHON_VERSION}.sh
-  echo 'export INTEL_PYTHON_VERSION=2018.0.0' >> ${BASH_DIR}/load_py${PY_VERSION}_${INTEL_PYTHON_VERSION}.sh
-  echo 'export PY_VERSION=35' >> ${BASH_DIR}/load_py${PY_VERSION}_${INTEL_PYTHON_VERSION}.sh
-  echo 'export PY_DOT_VERSION=3.5' >> ${BASH_DIR}/load_py${PY_VERSION}_${INTEL_PYTHON_VERSION}.sh
-  echo 'export PY_MAJOR_VERSION=3' >> ${BASH_DIR}/load_py${PY_VERSION}_${INTEL_PYTHON_VERSION}.sh
+  echo "export CONDA_ENV=$CONDA_ENV" > ${BASH_DIR}/load_py${PY_VERSION}_${INTEL_PYTHON_VERSION}.sh
+  echo "export INTEL_PYTHON_VERSION=$INTEL_PYTHON_VERSION" >> ${BASH_DIR}/load_py${PY_VERSION}_${INTEL_PYTHON_VERSION}.sh
+  echo "export PY_VERSION=$PY_VERSION" >> ${BASH_DIR}/load_py${PY_VERSION}_${INTEL_PYTHON_VERSION}.sh
+  echo "export PY_DOT_VERSION=$PY_DOT_VERSION" >> ${BASH_DIR}/load_py${PY_VERSION}_${INTEL_PYTHON_VERSION}.sh
+  echo "export PY_MAJOR_VERSION=$PY_MAJOR_VERSION" >> ${BASH_DIR}/load_py${PY_VERSION}_${INTEL_PYTHON_VERSION}.sh
   cat ${BASH_DIR}/load_conda.sh >> ${BASH_DIR}/load_py${PY_VERSION}_${INTEL_PYTHON_VERSION}.sh
 fi 
 
