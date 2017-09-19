@@ -35,7 +35,7 @@ if __name__ == "__main__":
         description="Launch dask workers on one single node to read files."
     )
     cpu_count = psutil.cpu_count()
-    print("CPU count from python is ", cpu_count)
+    print("Max thread count from python is", cpu_count)
     default_no_of_threads = 1
     if cpu_count // 4 - 2 > 1:
         default_no_of_workers = cpu_count // 4 - 2
@@ -64,5 +64,9 @@ if __name__ == "__main__":
         n_workers, n_threads))
     print("Reading in {} files".format(no_of_files))
     df = ddf.read_hdf(h5filelist[:no_of_files], 'csv', columns=columns)
-    df = df.dropna()
-    print(df.describe().compute())
+    print(df.compute().shape)
+
+
+
+    # df = df.dropna()
+    # print(df.describe().compute())
