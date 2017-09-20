@@ -7,12 +7,15 @@
 
 export CONDA_ENV=airline
 export INTEL_PYTHON_VERSION=2018.0.0
-export PY_VERSION=36
-export PY_DOT_VERSION=3.6
+export PY_VERSION=35
+export PY_DOT_VERSION=3.5 
 export PY_MAJOR_VERSION=3
 export EDITION=core
 if [[  $NERSC_HOST == "cori"  ]]; then
   export ENV_DIR=/global/common/software/bdc
+else 
+  export DIR=$HOME/miniconda${PY_MAJOR_VERSION}
+  export ENV_DIR=$HOME/miniconda${PY_MAJOR_VERSION}
 fi
 echo "ENV_DIR=$ENV_DIR"
 
@@ -26,14 +29,14 @@ fi
 source ${BASH_DIR}/setup_conda.sh
 source ${BASH_DIR}/load_conda.sh
 
-if [[ ! -f ${BASH_DIR}/load_py${PY_VERSION}_${INTEL_PYTHON_VERSION}.sh ]]; then
+if [[ ! -f ${BASH_DIR}/load_py${PY_MAJOR_VERSION}_${INTEL_PYTHON_VERSION}.sh ]]; then
   echo 'Creating file for reloading the environment'
-  echo "export CONDA_ENV=$CONDA_ENV" > ${BASH_DIR}/load_py${PY_VERSION}_${INTEL_PYTHON_VERSION}.sh
-  echo "export INTEL_PYTHON_VERSION=$INTEL_PYTHON_VERSION" >> ${BASH_DIR}/load_py${PY_VERSION}_${INTEL_PYTHON_VERSION}.sh
-  echo "export PY_VERSION=$PY_VERSION" >> ${BASH_DIR}/load_py${PY_VERSION}_${INTEL_PYTHON_VERSION}.sh
-  echo "export PY_DOT_VERSION=$PY_DOT_VERSION" >> ${BASH_DIR}/load_py${PY_VERSION}_${INTEL_PYTHON_VERSION}.sh
-  echo "export PY_MAJOR_VERSION=$PY_MAJOR_VERSION" >> ${BASH_DIR}/load_py${PY_VERSION}_${INTEL_PYTHON_VERSION}.sh
-  cat ${BASH_DIR}/load_conda.sh >> ${BASH_DIR}/load_py${PY_VERSION}_${INTEL_PYTHON_VERSION}.sh
+  echo "export CONDA_ENV=$CONDA_ENV" > ${BASH_DIR}/load_py${PY_MAJOR_VERSION}_${INTEL_PYTHON_VERSION}.sh
+  echo "export INTEL_PYTHON_VERSION=$INTEL_PYTHON_VERSION" >> ${BASH_DIR}/load_py${PY_MAJOR_VERSION}_${INTEL_PYTHON_VERSION}.sh
+  echo "export PY_VERSION=$PY_VERSION" >> ${BASH_DIR}/load_py${PY_MAJOR_VERSION}_${INTEL_PYTHON_VERSION}.sh
+  echo "export PY_DOT_VERSION=$PY_DOT_VERSION" >> ${BASH_DIR}/load_py${PY_MAJOR_VERSION}_${INTEL_PYTHON_VERSION}.sh
+  echo "export PY_MAJOR_VERSION=$PY_MAJOR_VERSION" >> ${BASH_DIR}/load_py${PY_MAJOR_VERSION}_${INTEL_PYTHON_VERSION}.sh
+  cat ${BASH_DIR}/load_conda.sh >> ${BASH_DIR}/load_py${PY_MAJOR_VERSION}_${INTEL_PYTHON_VERSION}.sh
 fi 
 
 echo "Using conda at $CONDA"
@@ -48,7 +51,7 @@ dask=0.15.2 \
 psutil=5.2.2 
 graphviz=2.38.0 \
 # python-graphviz=0.5.2=py35_0 \
-paramiko=2.1.2=py35_0 \
+paramiko=2.1.2 \
 distributed=1.18.1 \
 pytables=3.3.0 \
 numba
@@ -67,11 +70,11 @@ pip install --no-deps py==1.4.33 \
 # source ./theano_config/set_theano_optimizations.sh
 
 if [ -f Miniconda3-latest-${OS}-x86_64.sh ]; then 
-  rm ./Miniconda3-latest-${OS}-x86_64.sh
+  rm -f ./Miniconda3-latest-${OS}-x86_64.sh
 fi
-if [ -f ${BASH_DIR}/load_conda.sh ]; then
-  rm ${BASH_DIR}/load_conda.sh
-fi
-if [ -f ${BASH_DIR}/setup_conda.sh ]; then
-  rm ${BASH_DIR}/setup_conda.sh
-fi
+# if [ -f ${BASH_DIR}/load_conda.sh ]; then
+#   rm -f ${BASH_DIR}/load_conda.sh
+# fi
+# if [ -f ${BASH_DIR}/setup_conda.sh ]; then
+#   rm -f ${BASH_DIR}/setup_conda.sh
+# fi

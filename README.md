@@ -55,6 +55,7 @@ To achieve those goals, We perform the following tasks:
 	* - [ ] Boosting from 
 		- [ ] `XGBoost`
 		- [ ] `PyDAAL`
+		- [ ] Microsoft 's `LightGBM`
 	* - [ ] Random Forest from 
 		- [ ] `Scikit-Learn`
 		- [ ] `Spark ML` 
