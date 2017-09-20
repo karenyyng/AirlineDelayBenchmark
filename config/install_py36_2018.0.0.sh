@@ -1,6 +1,6 @@
 # -------------
 # Author: Karen Ng <mailto:karen.y.ng@intel.com>
-# dependency: curl wget
+# dependency: wget
 # usage:
 # source THIS_SCRIPT.sh
 # -------------
@@ -12,15 +12,16 @@ export PY_DOT_VERSION=3.6
 export PY_MAJOR_VERSION=3
 export EDITION=core
 if [[  $NERSC_HOST == "cori"  ]]; then
-  ENV_DIR=/global/common/software/bdc
+  export ENV_DIR=/global/common/software/bdc
 fi
+echo "ENV_DIR=$ENV_DIR"
 
 BASH_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}"  )" && pwd  )"
 if [[ ! -f ${BASH_DIR}/setup_conda.sh ]]; then
-  wget -O ${BASH_DIR}/setup_conda.sh https://gist.githubusercontent.com/karenyyng/d854662dadd2f1fa027bc87abf0a045c/raw/6da28836adce9b4d5c751599299ed5227504455a/setup_conda.sh 
+  wget -O ${BASH_DIR}/setup_conda.sh https://gist.githubusercontent.com/karenyyng/d854662dadd2f1fa027bc87abf0a045c/raw
 fi
 if [[ ! -f ${BASH_DIR}/load_conda.sh ]]; then
-  wget -O ${BASH_DIR}/load_conda.sh https://gist.githubusercontent.com/karenyyng/692025f1cc8ec753cd44a6cc9f78db6a/raw/7f26f6854dee19ec62b23e10c2a09fd4ddbc82fc/load_conda.sh 
+  wget -O ${BASH_DIR}/load_conda.sh https://gist.github.com/karenyyng/692025f1cc8ec753cd44a6cc9f78db6a/raw 
 fi  
 source ${BASH_DIR}/setup_conda.sh
 source ${BASH_DIR}/load_conda.sh
