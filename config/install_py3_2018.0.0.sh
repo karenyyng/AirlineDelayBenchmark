@@ -32,7 +32,7 @@ source ${BASH_DIR}/load_conda.sh
 if [[ ! -f ${BASH_DIR}/load_py${PY_MAJOR_VERSION}_${INTEL_PYTHON_VERSION}.sh ]]; then
   echo 'Creating file for reloading the environment'
   echo "export CONDA_ENV=$CONDA_ENV" > ${BASH_DIR}/load_py${PY_MAJOR_VERSION}_${INTEL_PYTHON_VERSION}.sh
-  echo "export ENV_DIR=$ENV_DIR" > ${BASH_DIR}/load_py${PY_MAJOR_VERSION}_${INTEL_PYTHON_VERSION}.sh
+  echo "export ENV_DIR=$ENV_DIR" >> ${BASH_DIR}/load_py${PY_MAJOR_VERSION}_${INTEL_PYTHON_VERSION}.sh
   echo "export INTEL_PYTHON_VERSION=$INTEL_PYTHON_VERSION" >> ${BASH_DIR}/load_py${PY_MAJOR_VERSION}_${INTEL_PYTHON_VERSION}.sh
   echo "export PY_VERSION=$PY_VERSION" >> ${BASH_DIR}/load_py${PY_MAJOR_VERSION}_${INTEL_PYTHON_VERSION}.sh
   echo "export PY_DOT_VERSION=$PY_DOT_VERSION" >> ${BASH_DIR}/load_py${PY_MAJOR_VERSION}_${INTEL_PYTHON_VERSION}.sh
@@ -54,7 +54,8 @@ graphviz=2.38.0 \
 paramiko=2.1.2 \
 distributed=1.18.1 \
 pytables=3.3.0 \
-numba=0.34.0
+numba=0.34.0 \
+mpi4py=2.0.0
 $CONDA install -y memory_profiler line_profiler bokeh 
 $CONDA install -y -c conda-forge category_encoders \
   pyspark=2.2.0
