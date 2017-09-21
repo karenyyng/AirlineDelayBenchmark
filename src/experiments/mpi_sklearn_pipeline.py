@@ -11,9 +11,11 @@ from collections import OrderedDict
 
 # import scripts that Karen wrote
 # import serial_preprocess_data as preprocess
+import sys
+sys.path.append("../")
 import utils
-
-h5list = utils.getFileList("../../data/", "h5")
+data_dir = "../../data/"
+h5list = utils.getFileList(data_dir, "h5")
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 workers = comm.Get_size()
@@ -37,7 +39,7 @@ columns = ['Year',
            ]
 
 # divide up the workload
-subset = 50
+subset = 10
 files_per_worker = int(len(h5list[:subset]) / workers)
 chunk_to_read = 0
 if rank == workers - 1:
@@ -47,7 +49,7 @@ print("Rank {0} reading in files from {1} to {2}".format(
     rank, rank * files_per_worker,
     (rank + 1) * files_per_worker + chunk_to_read))
 start_time = time.time()
-df = [pd.read_hdf("../data/" + h5list[no], columns=columns)
+df = [pd.read_hdf(h5list[no], columns=columns)
       for no in range(rank * files_per_worker,
                       (rank + 1) * files_per_worker + chunk_to_read)]
 end_time = time.time()
