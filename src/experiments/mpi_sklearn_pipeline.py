@@ -13,7 +13,7 @@ from collections import OrderedDict
 # import serial_preprocess_data as preprocess
 import utils
 
-h5list = utils.getFileList("../data/", "h5")
+h5list = utils.getFileList("../../data/", "h5")
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 workers = comm.Get_size()
