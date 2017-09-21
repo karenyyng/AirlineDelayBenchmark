@@ -71,9 +71,9 @@ pip install --no-deps py==1.4.33 \
 if [ -f Miniconda3-latest-${OS}-x86_64.sh ]; then 
   rm -f ./Miniconda3-latest-${OS}-x86_64.sh
 fi
-# if [ -f ${BASH_DIR}/load_conda.sh ]; then
-#   rm -f ${BASH_DIR}/load_conda.sh
-# fi
-# if [ -f ${BASH_DIR}/setup_conda.sh ]; then
-#   rm -f ${BASH_DIR}/setup_conda.sh
-# fi
+if [ -f ${BASH_DIR}/load_conda.sh ]; then
+  rm -f ${BASH_DIR}/load_conda.sh
+fi
+if [ -f ${BASH_DIR}/setup_conda.sh ]; then
+  rm -f ${BASH_DIR}/setup_conda.sh
+fi
