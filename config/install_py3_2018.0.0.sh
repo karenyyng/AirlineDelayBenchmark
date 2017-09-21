@@ -41,10 +41,9 @@ fi
 
 echo "Using conda at $CONDA"
 $CONDA install -y -c intel \
-category_encoders \
 scikit-learn=0.18.2 \
 jupyter=1.0.0 \
-matplotlib \
+matplotlib=2.0.2 \
 h5py=2.7.0 \
 pysocks=1.6.6 \
 dask=0.15.2 \
@@ -54,9 +53,9 @@ graphviz=2.38.0 \
 paramiko=2.1.2 \
 distributed=1.18.1 \
 pytables=3.3.0 \
-numba
+numba=0.34.0
 $CONDA install -y memory_profiler line_profiler
-# $CONDA install -y -c conda-forge category_encoders 
+$CONDA install -y -c conda-forge category_encoders 
 
 pip install --no-deps py==1.4.33 \
   gnureadline==6.3.3 \
