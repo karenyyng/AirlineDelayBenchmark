@@ -54,8 +54,9 @@ paramiko=2.1.2 \
 distributed=1.18.1 \
 pytables=3.3.0 \
 numba=0.34.0
-$CONDA install -y memory_profiler line_profiler bokeh
-$CONDA install -y -c conda-forge category_encoders 
+$CONDA install -y memory_profiler line_profiler bokeh 
+$CONDA install -y -c conda-forge category_encoders \
+  pyspark=2.2.0
 
 pip install --no-deps py==1.4.33 \
   gnureadline==6.3.3 \
@@ -77,3 +78,4 @@ fi
 if [ -f ${BASH_DIR}/setup_conda.sh ]; then
   rm -f ${BASH_DIR}/setup_conda.sh
 fi
+
