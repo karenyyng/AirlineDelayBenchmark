@@ -54,7 +54,7 @@ paramiko=2.1.2 \
 distributed=1.18.1 \
 pytables=3.3.0 \
 numba=0.34.0
-$CONDA install -y memory_profiler line_profiler
+$CONDA install -y memory_profiler line_profiler bokeh
 $CONDA install -y -c conda-forge category_encoders 
 
 pip install --no-deps py==1.4.33 \
