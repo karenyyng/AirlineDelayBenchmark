@@ -7,6 +7,7 @@ import argparse
 from distributed import Executor, Client, LocalCluster
 import dask.dataframe as ddf
 import numpy as np
+import os
 import psutil
 import time
 
@@ -106,9 +107,9 @@ if __name__ == "__main__":
         timing_info['conda_env'] = utils.capture_multiline_output(
             'conda list')
         timing_info['lscpu'] = utils.capture_multiline_output(
-            'lscpu')[0]
+            'lscpu')
         timing_info['date'] = time.strftime('%Y-%m-%d-%H-%M-%S')
-
+        timing_info['hostname'] = os.environ['HOSTNAME']
         timing_info['read_hdf_seconds'] = round(read_time, dec_pt)
         timing_info['file_IO_MB_per_second'] = \
             round(file_size * 1000 / read_time, dec_pt)
