@@ -6,8 +6,8 @@
 #SBATCH -C knl,quad,flat    # Use KNL nodes in quad flat format (usually faster)
 #SBATCH --account=dasrepo
 #SBATCH -J airlineIO
-#SBATCH -o /project/projectdirs/dasrepo/ml_benchmarks/AirlineDelayBenchmark/slurm_logs/%j_haswell.log
-#SBATCH -e /project/projectdirs/dasrepo/ml_benchmarks/AirlineDelayBenchmark/slurm_logs/%j_haswell.err
+#SBATCH -o ../slurm_logs/%j_haswell.log
+#SBATCH -e ../slurm_logs/%j_haswell.err
 ##### SBATCH --license=SCRATCH   # note: specify license need for the file systems your job needs, such as SCRATCH,project
 
 ##### modified script according to 

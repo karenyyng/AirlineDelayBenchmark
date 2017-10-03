@@ -1,7 +1,7 @@
 """
 Code to perform parallel io via MPI
 
-Currently only works if you run the script form the `experiment` dir
+Note: Currently only works if you run the script from the `experiments` dir
 """
 
 from mpi4py import MPI
@@ -23,11 +23,12 @@ data_dir = project_root + "data/"
 log_dir = project_root + "slurm_logs/"
 rounding_dec_pt = 2
 load_balance = False
-subset = 10
+subset = 68
 verbose = True
-save_json = False
-h5list = utils.getFileList(data_dir, "h5")
+save_json = True
+h5list = sorted(utils.getFileList(data_dir, "h5"))
 
+# script starts
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 workers = comm.Get_size()
@@ -50,7 +51,8 @@ columns = ['Year',
            'DayOfWeek'
            ]
 
-# perform load balancing
+# perform load balancing, this is not stable due to
+# the limit of communication data size during serialization
 if load_balance:
     files_per_worker = int(len(h5list[:subset]) / workers)
     chunk_to_read = 0
@@ -92,8 +94,9 @@ if rank == 0:
         'git remote -v ')[0]
     timing_info['conda_env'] = utils.capture_multiline_output(
         'conda list')
-    timing_info['conda_env'] = utils.capture_multiline_output(
+    timing_info['lscpu'] = utils.capture_multiline_output(
         'lscpu')[0]
+
     timing_info['read_hdf_seconds'] = \
         np.array([round(read_time, rounding_dec_pt)
                   for read_time in read_df_time])
