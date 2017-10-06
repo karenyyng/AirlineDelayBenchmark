@@ -51,8 +51,8 @@ pysocks=1.6.6 \
 dask=0.15.2 \
 distributed=1.18.1 \
 pytables=3.3.0 \
-mpi4py=2.0.0
-psutil=5.2.2 
+mpi4py=2.0.0 \ 
+psutil=5.2.2 \  
 # python-graphviz=0.5.2=py35_0 \
 paramiko=2.1.2 \
 numba=0.34.0 
