@@ -48,7 +48,7 @@ matplotlib=2.0.2 \
 h5py=2.7.0 \
 pysocks=1.6.6 \
 dask=0.15.2 \
-psutil=5.2.2 
+psutil=5.2.2 \
 graphviz=2.38.0 \
 # python-graphviz=0.5.2=py35_0 \
 paramiko=2.1.2 \
