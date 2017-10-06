@@ -8,6 +8,10 @@
 	* the converted HDF5 files take up 210 GB (because NaNs are stored as 64 bit
 	  floats, and other metadata for the column variable types)
 
+# Installation 
+Please navigate to the `config` directory and read the `README.md` in that directory.
+
+
 # Data source of the airline delay data
 
 This is a very popular dataset that has been in numerous ML examples.  
@@ -124,5 +128,3 @@ This restores the PATH variable to the original state.
 Thanks to Duncan Temple Lang who first showed me the dataset.
 Please also see his book `XML and Web Technologes for Data Science with R`.
 for another use of a dataset from the same source.
-
-
