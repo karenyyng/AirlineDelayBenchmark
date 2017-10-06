@@ -12,7 +12,7 @@ export PY_DOT_VERSION=3.5
 export PY_MAJOR_VERSION=3
 export EDITION=core
 if [[  $NERSC_HOST == "cori"  ]]; then
-  export ENV_DIR=/global/common/software/bdc
+  export ENV_DIR=$SCRATCH
 else 
   export DIR=$HOME/miniconda${PY_MAJOR_VERSION}
   export ENV_DIR=$HOME/miniconda${PY_MAJOR_VERSION}
@@ -39,6 +39,7 @@ if [[ ! -f ${BASH_DIR}/load_py${PY_MAJOR_VERSION}_${INTEL_PYTHON_VERSION}.sh ]];
   echo "export PY_MAJOR_VERSION=$PY_MAJOR_VERSION" >> ${BASH_DIR}/load_py${PY_MAJOR_VERSION}_${INTEL_PYTHON_VERSION}.sh
   echo "export SPARK_HOME=$ENV_DIR/py35_envs/$CONDA_ENV/lib/python3.6/site-packages/pyspark" >> ${BASH_DIR}/load_py${PY_MAJOR_VERSION}_${INTEL_PYTHON_VERSION}.sh
   cat ${BASH_DIR}/load_conda.sh >> ${BASH_DIR}/load_py${PY_MAJOR_VERSION}_${INTEL_PYTHON_VERSION}.sh
+  echo "export SPARK_HOME=$ENV_DIR/py35_envs/$CONDA_ENV/lib/python3.6/site-packages/pyspark" >> ${BASH_DIR}/load_py${PY_MAJOR_VERSION}_${INTEL_PYTHON_VERSION}.sh
 fi 
 
 echo "Using conda at $CONDA"
@@ -53,11 +54,10 @@ distributed=1.18.1 \
 pytables=3.3.0 \
 mpi4py=2.0.0 \ 
 psutil=5.2.2 \  
-# python-graphviz=0.5.2=py35_0 \
 paramiko=2.1.2 \
 numba=0.34.0 
 $CONDA install -y memory_profiler line_profiler 
-$CONDA install -y -c conda-forge pyspark=2.2.0
+# $CONDA install -y -c conda-forge pyspark=2.2.0
 
 if [ -f Miniconda3-latest-${OS}-x86_64.sh ]; then 
   rm -f ./Miniconda3-latest-${OS}-x86_64.sh
@@ -68,4 +68,3 @@ fi
 if [ -f ${BASH_DIR}/setup_conda.sh ]; then
   rm -f ${BASH_DIR}/setup_conda.sh
 fi
-
