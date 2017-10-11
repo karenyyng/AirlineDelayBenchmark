@@ -35,7 +35,7 @@ if __name__ == "__main__":
     # default values of parameters
     data_dir = "../../data/"
     log_dir = "../../slurm_logs/"
-    no_of_files = 64 
+    no_of_files = 64
     default_no_of_threads = 1
     cpu_count = psutil.cpu_count()
     if cpu_count // 4 - 2 > 1:
@@ -71,12 +71,13 @@ if __name__ == "__main__":
     no_of_files = args.n_files
 
     if no_of_files < n_workers:
-        raise ValueError("n_files = {0} > n_workers {1}".format(
+        raise ValueError(
+            "n_files = {0} > n_workers {1}. n_file needs to be >= n_workers".format(
             no_of_files, n_workers))
 
     # start script
     h5filelist = sorted(utils.getFileList(data_dir, 'h5'))
-    # print(h5filelist[:no_of_files])
+    print(h5filelist[:no_of_files])
     file_size = utils.getFileSizeInGB(h5filelist[:no_of_files])
     print("File size to read in is {0:.0f} GB".format(file_size))
 

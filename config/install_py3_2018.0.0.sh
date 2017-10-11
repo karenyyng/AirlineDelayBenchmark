@@ -44,19 +44,19 @@ fi
 
 echo "Using conda at $CONDA"
 $CONDA install -y -c intel \
+pytables=3.3.0 \
 scikit-learn=0.18.2 \
 jupyter=1.0.0 \
 matplotlib=2.0.2 \
 h5py=2.7.0 \
 pysocks=1.6.6 \
-dask=0.15.2 \
-distributed=1.18.1 \
-pytables=3.3.0 \
 mpi4py=2.0.0 \ 
 psutil=5.2.2 \  
 paramiko=2.1.2 \
 numba=0.34.0 
-$CONDA install -y memory_profiler line_profiler 
+$CONDA install -y memory_profiler line_profiler \
+dask=0.15.2 \
+distributed=1.18.1 
 # $CONDA install -y -c conda-forge pyspark=2.2.0
 
 if [ -f Miniconda3-latest-${OS}-x86_64.sh ]; then 
