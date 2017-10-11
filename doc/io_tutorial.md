@@ -1,6 +1,6 @@
 # Install instructions for GitHub repo:
 ```
-$ git pull https://github.intel.com/karenyin/AirlineDelayIntelBenchmark.git
+$ git clone https://github.intel.com/karenyin/AirlineDelayIntelBenchmark.git
 $ git fetch 
 $ git checkout io 
 $ cd ./AirlineDelayIntelBenchmark/
