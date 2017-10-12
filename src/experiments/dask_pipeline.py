@@ -35,7 +35,7 @@ if __name__ == "__main__":
     # default values of parameters
     data_dir = "../../data/"
     log_dir = "../../slurm_logs/"
-    no_of_files = 64 
+    no_of_files = 64
     default_no_of_threads = 1
     cpu_count = psutil.cpu_count()
     if cpu_count // 4 - 2 > 1:

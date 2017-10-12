@@ -10,7 +10,7 @@ export INTEL_PYTHON_VERSION=2018.0.0
 export PY_VERSION=35
 export PY_DOT_VERSION=3.5 
 export PY_MAJOR_VERSION=3
-export EDITION=core
+export EDITION=full
 if [[  $NERSC_HOST == "cori"  ]]; then
   export ENV_DIR=/global/common/software/bdc
 else 
