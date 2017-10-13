@@ -68,6 +68,7 @@ if load_balance:
                           (rank + 1) * files_per_worker + chunk_to_read)]
     end_time = time.time()
 else:
+    subset = workers
     start_time = time.time()
     df = [pd.read_hdf(h5list[rank], columns=columns)]
     end_time = time.time()
