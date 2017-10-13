@@ -47,27 +47,23 @@ scikit-learn=0.18.2 \
 jupyter=1.0.0 \
 matplotlib=2.0.2 \
 h5py=2.7.0 \
-pysocks=1.6.6 \
 dask=0.15.2 \
 psutil=5.2.2 \
-graphviz=2.38.0 \
-# python-graphviz=0.5.2=py35_0 \
 paramiko=2.1.2 \
 distributed=1.18.1 \
 pytables=3.3.0 \
 numba=0.34.0 \
 mpi4py=2.0.0
-$CONDA install -y memory_profiler line_profiler bokeh 
+$CONDA install -y memory_profiler line_profiler bokeh pysocks=1.6.6 
 $CONDA install -y -c conda-forge category_encoders \
-  pyspark=2.2.0
+  pyspark=2.2.0 \
 
 pip install --no-deps py==1.4.33 \
-  gnureadline==6.3.3 \
-  # keras==2.0.2 \
   pygal==2.0.13 \
   pygaljs==1.0.1 \
-  category_enconders=1.2.4
-  # xgboost==0.6a2 \
+  gprof2dot
+
+
 # pip install pytest==3.0.7 git+ssh://git@github.com/karenyyng/pytest-benchmark.git
 # pip install dask-xgboost==0.1.3 
 # source ./theano_config/set_theano_optimizations.sh
