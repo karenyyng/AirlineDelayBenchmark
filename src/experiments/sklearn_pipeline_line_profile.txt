@@ -1,0 +1,163 @@
+Reading 12 files
+Size of file read in is 6.99 GB
+Reading in 15 selected columns only
+Columns are: ['Year', 'Cancelled', 'Distance', 'Diverted', 'ArrTime', 'Dest',
+'FlightNum', 'ActualElapsedTime', 'ArrDelay', 'DayofMonth
+Memory usage of the data frame is 0.67 GB
+Cardinality of Dest is 240
+Cardinality of UniqueCarrier is 14
+Cardinality of Origin is 242
+Removed 1.49% of records with NaN in target variable.
+Removed 108950 of additional invalid records which is 2.09% of total records
+Transformed columns are  Index(['Dest_0', 'Dest_1', 'Dest_2', 'Dest_3',
+'Dest_4', 'Dest_5', 'Dest_6',
+Total time: 7651.3 s
+File:
+/home/karenyin/ml_benchmarks/AirlineDelayIntelBenchmark/src/experiments/sklearn_pipeline.py
+Function: main at line 4
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+     4                                           def main():
+     5         1        87187  87187.0      0.0      import psutil
+     6
+     7                                               # import matplotlib.pyplot as plt
+     8         1      2281241 2281241.0      0.0      from sklearn.pipeline import Pipeline
+     9         1           19     19.0      0.0      from sklearn.model_selection import GridSearchCV
+    10         1        54579  54579.0      0.0      from sklearn.ensemble import RandomForestClassifier
+    11         1           17     17.0      0.0      from sklearn.preprocessing import StandardScaler, LabelEncoder  # , LabelBinarizer
+    12                                               # from sklearn.naive_bayes import GaussianNB
+    13         1           11     11.0      0.0      from sklearn.preprocessing import Imputer
+    14         1           12     12.0      0.0      from sklearn.externals import joblib
+    15                                               # from sklearn import metrics
+    16         1      1259457 1259457.0      0.0      from category_encoders import BinaryEncoder
+    17         1           11     11.0      0.0      from datetime import datetime
+    18
+    19
+    20         1            8      8.0      0.0      from sklearn.model_selection import TimeSeriesSplit
+    21         1            5      5.0      0.0      import os
+    22                                               # import pandas as pd
+    23         1            4      4.0      0.0      import numpy as np
+    24                                               # import h5py
+    25
+    26         1            5      5.0      0.0      import sys
+    27         1            5      5.0      0.0      sys.path.append("../")
+    28         1         1780   1780.0      0.0      import serial_preprocess_data as preprocess
+    29         1            5      5.0      0.0      import utils
+    30
+    31         1           77     77.0      0.0      cpu_count = int(psutil.cpu_count() / 4) - 2])'] 
+    32         1           47     47.0      0.0      print("Trying to use {} number of cpu".format(cpu_count))
+    33         1            4      4.0      0.0      data_dir = "../../data/"
+    34         1          528    528.0      0.0      hdf_files = sorted([data_dir + file for file in os.listdir(data_dir)
+    35                                                                   if
+'.h5' in file])
+    36
+    37                                               # pick out unique columns from the data. There are not that many relevant featuresfor use.
+    38         1            4      4.0      0.0      columns = ['Year',
+    39         1            4      4.0      0.0                 'Cancelled',
+    40         1            3      3.0      0.0                 'Distance',
+    41         1            4      4.0      0.0                 'Diverted',
+    42         1            3      3.0      0.0                 'ArrTime',
+    43         1            4      4.0      0.0                 'Dest',
+    44         1            3      3.0      0.0                 'FlightNum',
+    45                                                          # 'DepDelay', ## not using DepDelay
+    46         1            3      3.0      0.0                 'ActualElapsedTime',
+    47         1            4      4.0      0.0                 'ArrDelay',
+    48         1            3      3.0      0.0                 'DayofMonth',
+    49         1            4      4.0      0.0                 'UniqueCarrier',
+    50         1            4      4.0      0.0                 'Month',
+    51         1            3      3.0      0.0                 'DepTime',
+    52         1            4      4.0      0.0                 'Origin',
+    53         1            4      4.0      0.0                 'DayOfWeek'
+    54                                                           ]
+    55         1            4      4.0      0.0      scoring = 'roc_auc'
+    56         1            3      3.0      0.0      no_of_files = 12
+    57
+    58         1            6      6.0      0.0      df = preprocess.readFilesToDf("h5", file_list=hdf_files[:no_of_files],
+    59         1    101377551 101377551.0      1.3   				   cols=columns)
+    60
+    61         1            8      8.0      0.0      print("Size of file read in is {0:.2f} GB".format(
+    62         1          171    171.0      0.0      utils.getFileSizeInGB(hdf_files[:no_of_files])
+			    ))
+    63         1           17     17.0      0.0      print("Reading in {0} selected columns only".format(len(columns)))
+    64         1           27     27.0      0.0      print("Columns are:", columns)
+    65         1            4      4.0      0.0      print("Memory usage of the data frame is {0:.2f} GB".format(
+    66         1         4254   4254.0      0.0             np.sum(df.memory_usage()) / 1e9 ))
+    67
+    68                                               # preprocess data check the percentage of nans
+    69         1      1617372 1617372.0      0.0      cat_variables = preprocess.find_cardinality_of_categorical_variables(df)
+    70
+    71         1      4450978 4450978.0      0.1      ix = preprocess.clean_data_minimally(df)
+    72                                               # apply cleaning of the data
+    73         1      1214601 1214601.0      0.0      df = df.iloc[ix].reindex()
+    74         1      1818951 1818951.0      0.0      df = df.sort_values(by=['DayofMonth', 'Month', 'Year', 'DepTime'])
+    75
+    76         1           61     61.0      0.0      feature_cols = list(df.columns)
+    77         1           10     10.0      0.0      feature_cols.remove('ArrDelay')
+    78         1            2      2.0      0.0      feature_cols.remove('Cancelled')
+    79
+    80         1          237    237.0      0.0      df['delayCat'] = df.ArrDelay.apply(
+    81         1      5728301 5728301.0      0.1      preprocess.convert_delay_into_multiple_categories)
+    82         1          251    251.0      0.0      df['delayBinaryCat'] = df.ArrDelay.apply(
+    83         1      1866388 1866388.0      0.0     preprocess.convert_delay_into_two_categories)
+    84         1       369190 369190.0      0.0      X = df[feature_cols]
+    85         1          199    199.0      0.0      y = df['delayBinaryCat']
+    86
+    87         1           34     34.0      0.0      encoder = BinaryEncoder()
+    88         1    342541085 342541085.0      4.5      encoder.fit(X)
+    89         1    485463025 485463025.0      6.3      transformed_X = encoder.transform(X)
+    90
+    91         1         1112   1112.0      0.0      print("Transformed columns are ", transformed_X.columns)
+    92
+    93         1          444    444.0      0.0      df_gpby = df.groupby('delayCat')
+    94         1       112155 112155.0      0.0      delay_percentage_breakdown = df_gpby.ArrDelay.count() / df.shape[0] * 100
+    95         1            4      4.0      0.0      delay_percentage_breakdown.index = ['very early',
+    96         1            2      2.0      0.0      'early',
+    97         1            2      2.0      0.0      'on time',
+    98         1            2      2.0      0.0      'late',
+    99         1          225    225.0      0.0      'very late'
+   100                                                                                   ]
+   101         1            5      5.0      0.0      print("Percentage breakdown of different categories " +
+   102         1            4      4.0      0.0            "of the target variable is: \n",
+   103         1         1327   1327.0      0.0            delay_percentage_breakdown)
+   104
+   105                                               # the breakdown of delay is pretty balanced.
+   106                                               # Although a careful study will also look at the correlation with other
+   107                                               # other features
+   108
+   109         1          127    127.0      0.0      tscv = TimeSeriesSplit()
+   110         1            3      3.0      0.0      cv_ixes = [(train_ix, test_ix)
+   111         1         2940   2940.0      0.0      for train_ix, test_ix in tscv.split(transformed_X)]
+   112
+   113                                               # only put grid search steps into pipeline
+   114                                               rf_pipeline_steps = [
+   115                                                  		 # impute missing feature values with median values
+   116         1           25     25.0      0.0          ("imputer", Imputer(strategy="median")),
+   117         1          123    123.0      0.0          ('rf', RandomForestClassifier(n_jobs=cpu_count, oob_score=True)),
+   118                                               
+]
+   119
+   120         1            2      2.0      0.0      gridsearch_parameters = dict([
+   121         1            3      3.0      0.0          ("rf__n_estimators", [800]),
+   122         1            6      6.0      0.0          ("rf__max_features", [None]),  # not many featuers to subset from
+   123                                               ])
+   124
+   125         1          338    338.0      0.0      rf_pipeline = Pipeline(rf_pipeline_steps)
+   126
+   127         1            3      3.0      0.0      est = GridSearchCV(rf_pipeline,
+   128         1            2      2.0      0.0				param_grid=gridsearch_parameters,
+   129         1            2      2.0      0.0                         n_jobs=1,
+   130                                               # use accuracy for scoring for comparing to another benchmark
+   131         1            2      2.0      0.0                         scoring=scoring,
+   132         1           59     59.0      0.0     			cv=tscv.split(X),
+   133                                                                  )
+   134         1           20     20.0      0.0      print("Fitting the values")
+   135         1          658    658.0      0.0      print("Columns in the training data are ", X.columns)
+   136         1   6694111705 6694111705.0     87.5  est.fit(transformed_X.values, y.values)
+   137         1           85     85.0      0.0      print("Saving the model")
+   138         1          127    127.0      0.0      print("Best score" + scoring + "is", est.best_score_)
+   139         1           30     30.0      0.0      print("Best parameters are ", est.best_params_)
+   140
+   141         1          599    599.0      0.0      datetime_stamp = datetime.now().strftime("%D_%X"
+   142         1            6      6.0      0.0       ).replace("/", "_").replace(":", "_")
+   143         1      6931066 6931066.0      0.1     joblib.dump(est.best_estimator_, "./RF_CV_pipeline" + datetime_stamp + ".pkl") 
