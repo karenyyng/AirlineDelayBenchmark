@@ -12,7 +12,7 @@ export PY_DOT_VERSION=3.5
 export PY_MAJOR_VERSION=3
 export EDITION=full
 if [[  $NERSC_HOST == "cori"  ]]; then
-  export ENV_DIR=/global/common/software/bdc
+  export ENV_DIR=$SCRATCH
 else 
   export DIR=$HOME/miniconda${PY_MAJOR_VERSION}
   export ENV_DIR=$HOME/miniconda${PY_MAJOR_VERSION}
