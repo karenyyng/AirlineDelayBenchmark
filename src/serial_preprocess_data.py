@@ -31,7 +31,7 @@ def clean_data_minimally(df, verbose=True,
                          invalid_values=[("Cancelled", 1.0)]):
     """remove records with nan values for the target variable (ArrDelay)
     and remove canceled flights from the dataframe
-
+    :df: pandas dataframe
     :invalid_values: list of key-value tuple pairs,
         key is the column string in the df,
         value is a certain invalid value.
@@ -65,7 +65,7 @@ def find_cardinality_of_categorical_variables(df):
     """
     :return: list of column names for categorical variables
     """
-    cat_variables = np.array(df.columns)[~(df.dtypes == np.float64)]
+    cat_variables = np.array(df.columns)[df.dtypes == np.object]
     for cat in cat_variables:
         print("Cardinality of {0} is {1}".format(
             cat, len(df[cat].unique())))
