@@ -1,0 +1,37 @@
+Trying to use 20 number of cpu
+Reading 12 files
+Size of file read in is 6.99 GB
+Reading in 15 selected columns only
+Columns are: ['Year', 'Cancelled', 'Distance', 'Diverted', 'ArrTime', 'Dest',
+'FlightNum', 'ActualElapsedTime', 'ArrDelay', 'DayofMonth', 'UniqueCarrier',
+'Month', 'DepTime', 'Origin', 'DayOfWeek']
+Memory usage of the data frame is 0.67 GB
+Cardinality of Dest is 240
+Cardinality of UniqueCarrier is 14
+Cardinality of Origin is 242
+Removed 1.49% of records with NaN in target variable.
+Removed 108950 of additional invalid records which is 2.09% of total records
+Transformed columns are  Index(['Dest_0', 'Dest_1', 'Dest_2', 'Dest_3',
+'Dest_4', 'Dest_5', 'Dest_6',
+       'Dest_7', 'UniqueCarrier_0', 'UniqueCarrier_1', 'UniqueCarrier_2',
+       'UniqueCarrier_3', 'Origin_0', 'Origin_1', 'Origin_2', 'Origin_3',
+       'Origin_4', 'Origin_5', 'Origin_6', 'Origin_7', 'Year', 'Distance',
+       'Diverted', 'ArrTime', 'FlightNum', 'ActualElapsedTime', 'DayofMonth',
+       'Month', 'DepTime', 'DayOfWeek'],
+      dtype='object')
+Percentage breakdown of different categories of the target variable is:
+ very early     0.136462
+early         16.919660
+on time       41.530235
+late          35.076939
+very late      6.165588
+Name: ArrDelay, dtype: float64
+Fitting the values
+Columns in the training data are  Index(['Year', 'Distance', 'Diverted',
+'ArrTime', 'Dest', 'FlightNum',
+       'ActualElapsedTime', 'DayofMonth', 'UniqueCarrier', 'Month', 'DepTime',
+       'Origin', 'DayOfWeek'],
+      dtype='object')
+Saving the model
+Best scoreroc_aucis 0.914136842314
+Best parameters are  {'rf__max_features': None, 'rf__n_estimators': 800}
