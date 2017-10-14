@@ -51,6 +51,8 @@ columns = ['Year',
            'DayOfWeek'
            ]
 
+if len(h5list) == 0:
+    raise ValueError("No files are available at the data directory")
 # perform load balancing, this is not stable due to
 # the limit of communication data size during serialization
 if load_balance:
