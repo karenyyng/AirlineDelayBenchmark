@@ -1,8 +1,6 @@
 """
 Use Python 3.5
 """
-import sys
-sys.path.append("../")
 import argparse
 from distributed import Executor, Client, LocalCluster
 import dask.dataframe as ddf
@@ -11,8 +9,6 @@ import os
 import psutil
 import time
 
-# import my utils
-import utils
 columns = ['Year',
            'Cancelled',
            'Distance',
@@ -63,12 +59,24 @@ if __name__ == "__main__":
     parser.add_argument("--output_json", default=True, type=bool,
                         help="bool, whether to save a log for timing"
                         )
+    parser.add_argument("--script_dir", required=True, type=str,
+                        help="str, the dir path of this script, do not included" +
+                        "the actual script name. Needed for SLURM jobs"
+                        )
+
+
 
     args = parser.parse_args()
     n_workers = args.n_workers
     n_threads = args.n_threads
     data_dir = args.data_dir
     no_of_files = args.n_files
+    script_dir = args.script_dir
+
+    import sys
+    sys.path.append(script_dir + "/../")
+    # import my utils
+    import utils
 
     if no_of_files < n_workers:
         raise ValueError("n_files = {0} > n_workers {1}".format(
