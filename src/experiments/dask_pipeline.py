@@ -111,10 +111,12 @@ if __name__ == "__main__":
         timing_info['date'] = time.strftime('%Y-%m-%d-%H-%M-%S')
         timing_info['hostname'] = os.environ['HOSTNAME']
         timing_info['read_hdf_seconds'] = round(read_time, dec_pt)
+        timing_info['file_size_GB'] = round(file_size, dec_pt)
         timing_info['file_IO_MB_per_second'] = \
             round(file_size * 1000 / read_time, dec_pt)
         timing_info['df_IO_MB_per_second'] = \
             round(df_size * 1000 / read_time, dec_pt)
+        timing_info['df_size_GB'] = round(df_size, dec_pt)
         json_file = log_dir + "dask_io_perf_{}.json".format(
                 timing_info['date'])
         print("outputting timing to ", json_file)
