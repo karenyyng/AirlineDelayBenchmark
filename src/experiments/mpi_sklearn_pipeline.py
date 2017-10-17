@@ -4,6 +4,7 @@ Code to perform parallel io via MPI
 Note: Currently only works if you run the script from the `experiments` dir
 """
 
+import argparse
 from mpi4py import MPI
 # import numpy as np
 import pandas as pd
@@ -11,11 +12,6 @@ import numpy as np
 import time
 from collections import OrderedDict
 
-# import scripts that Karen wrote
-# import serial_preprocess_data as preprocess
-import sys
-sys.path.append("../")
-import utils
 
 # set script options
 project_root = "../../"
@@ -26,6 +22,20 @@ load_balance = False
 subset = 68
 verbose = True
 save_json = True
+
+parser = argparse.ArgumentParser(
+    description="Launch dask workers on one node to read files."
+)
+parser.add_argument("--script_dir", required=True, type=str,
+                    help="str, the dir path of this script, do not included" +
+                    "the actual script name. Needed for SLURM jobs"
+                    )
+
+args = parser.parse_args()
+import sys
+sys.path.append(args.script_dir + "/../")
+# import scripts that Karen wrote
+import utils
 h5list = sorted(utils.getFileList(data_dir, "h5"))
 
 # script starts
