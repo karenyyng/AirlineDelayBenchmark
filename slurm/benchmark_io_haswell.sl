@@ -16,6 +16,7 @@ source ../config/load_py3_2018.0.0.sh
 echo $OMP_NUM_THREADS
 export GITREPO=/global/project/projectdirs/dasrepo/ml_benchmarks/AirlineDelayBenchmark/src/experiments
 
+# srun -N 1 python -m tbb ../src/experiments/dask_pipeline.py --n_workers \ 
 # $OMP_NUM_THREADS --n_files $OMP_NUM_THREADS --n_threads 1 --output_json 1 \
 # --script_dir $GITREPO/src/experiments \
 # --data_dir $GITREPO/data/
