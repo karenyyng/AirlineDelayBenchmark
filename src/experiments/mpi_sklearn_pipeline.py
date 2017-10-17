@@ -108,7 +108,7 @@ if rank == 0:
     timing_info['conda_env'] = utils.capture_multiline_output(
         'conda list')
     timing_info['lscpu'] = utils.capture_multiline_output(
-        'lscpu')[0]
+        'lscpu')
 
     timing_info['read_hdf_seconds'] = \
         np.array([round(read_time, rounding_dec_pt)
