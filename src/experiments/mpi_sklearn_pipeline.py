@@ -28,14 +28,18 @@ parser = argparse.ArgumentParser(
 )
 parser.add_argument("--script_dir", required=True, type=str,
                     help="str, the dir path of this script, do not included" +
-                    "the actual script name. Needed for SLURM jobs"
+                    " the actual script name. Needed for SLURM jobs"
                     )
-
+parser.add_argument("--data_dir", default=data_dir, type=str,
+                    help="str, the dir path of the data files. Don't include " + 
+                    " the file name. Needed for SLURM jobs"
+                    )
 args = parser.parse_args()
 import sys
 sys.path.append(args.script_dir + "/../")
 # import scripts that Karen wrote
 import utils
+data_dir = args.data_dir
 h5list = sorted(utils.getFileList(data_dir, "h5"))
 
 # script starts
