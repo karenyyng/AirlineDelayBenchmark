@@ -14,10 +14,13 @@ export HOSTNAME=cori
 export ARK=haswell
 source ../config/load_py3_2018.0.0.sh
 echo $OMP_NUM_THREADS
+export GITREPO=/global/project/projectdirs/dasrepo/ml_benchmarks/AirlineDelayBenchmark/src/experiments
 
-# srun -N 1 -n $OMP_NUM_THREADS python -m tbb ../src/experiments/mpi_sklearn_pipeline.py \
-# --script_dir /global/project/projectdirs/dasrepo/ml_benchmarks/AirlineDelayBenchmark/src/experiments 
+# $OMP_NUM_THREADS --n_files $OMP_NUM_THREADS --n_threads 1 --output_json 1 \
+# --script_dir $GITREPO/src/experiments \
+# --data_dir $GITREPO/data/
 
-srun -N 1 python ../src/experiments/dask_pipeline.py \
---n_workers $OMP_NUM_THREADS --n_files $OMP_NUM_THREADS --n_threads 1 \
---script_dir /global/project/projectdirs/dasrepo/ml_benchmarks/AirlineDelayBenchmark/src/experiments
+mpirun -np $OMP_NUM_THREADS -ppn 8 python -m tbb ../src/experiments/mpi_sklearn_pipeline.py \
+--script_dir $GITREPO/src/experiments \
+--data_dir $GITREPO/data/
+-script_dir /global/project/projectdirs/dasrepo/ml_benchmarks/AirlineDelayBenchmark/src/experiments
