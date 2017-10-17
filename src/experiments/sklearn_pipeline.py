@@ -126,7 +126,7 @@ def main():
                        param_grid=gridsearch_parameters,
                        n_jobs=1,
                        scoring=scoring,
-                       cv=tscv.split(X),
+                       cv=tscv.split(X),  # this does 3 fold cross-validation
                        )
     print("Fitting the values")
     print("Columns in the training data are ", X.columns)

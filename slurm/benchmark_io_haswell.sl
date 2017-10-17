@@ -23,5 +23,5 @@ export GITREPO=/global/project/projectdirs/dasrepo/ml_benchmarks/AirlineDelayBen
 
 mpirun -np $OMP_NUM_THREADS -ppn 8 python -m tbb ../src/experiments/mpi_sklearn_pipeline.py \
 --script_dir $GITREPO/src/experiments \
---data_dir $GITREPO/data/
--script_dir /global/project/projectdirs/dasrepo/ml_benchmarks/AirlineDelayBenchmark/src/experiments
+--data_dir $GITREPO/data/ \ 
+-script_dir $GITREPO/src/experiments

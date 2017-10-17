@@ -43,7 +43,7 @@ if [[ $(grep 'model name' /proc/cpuinfo ) == *'Xeon Phi'*  ]]; then
   export MKL_NUM_THREADS=$(( $NUM_OF_THREADS / 4 ))
   # export KMP_HW_SUBSET=${OMP_NUM_THREADS}c,1t  # or use 64c,2t 
   export MKL_VERBOSE=0
-  export KMP_COMPOSABILITY=mode="exclusive python"
+  export KMP_COMPOSABILITY=mode=exclusive python
 else 
   export KMP_BLOCKTIME=800
   export OMP_NUM_THREADS=$(( $NUM_OF_THREADS / 4  ))

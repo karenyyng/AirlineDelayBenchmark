@@ -73,6 +73,9 @@ if __name__ == "__main__":
     no_of_files = args.n_files
     script_dir = args.script_dir
 
+    data_dir = script_dir + "/" + data_dir
+    log_dir = script_dir + "/" + log_dir
+
     import sys
     sys.path.append(script_dir + "/../")
     # import my utils
